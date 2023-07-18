@@ -112,6 +112,12 @@
         </svg>
       </div>
       <div class="menu">
+        <input type="checkbox" id="check">
+        <label class="checkbtn" for="check">
+          <font-awesome-icon icon="bars" id="open" />
+          <font-awesome-icon icon="cross"  id="cancel"/>
+      </label>
+    
         <ul>
           <li> <a href="#">Expert Sourcing</a> </li>
           <li> <a href="#">Contract Manufacturing</a> </li>
@@ -120,8 +126,8 @@
           <li> <a href="#" class="anchor"> About Us<font-awesome-icon icon="angle-down" id="angle" /> </a>
             <div class="sub-menu">
               <ul>
-                <li> <a href="#"> Our Story</a></li>
-                <li> <a href="#"> How To Buy</a> </li>
+                <li> <a href="#" id="a1"> Our Story</a></li>
+                <li> <a href="#" id="a2"> How To Buy</a> </li>
               </ul>
             </div>
           </li>
@@ -135,10 +141,7 @@
       <button id="btn3"> <span id="zero"> <font-awesome-icon icon="shopping-basket" id="ican" />
           <p>0</p>
         </span> </button>
-      <input type="checkbox" id="check">
-      <label for="check" class="checkbtn">
-        <font-awesome-icon icon="bars" />
-      </label>
+     
     </div>
   </div>
 </template>
@@ -155,6 +158,9 @@ export default {
 </script>
 
 <style scoped>
+#main-head{
+  overflow: hidden;
+}
 .st2 {
   fill: #27b373;
 }
@@ -174,16 +180,25 @@ export default {
   width: 1200px;
   height: 120px;
 }
+#check2{
+  display: none;
+}
 .checkbtn {
   font-size: 30px;
-  color: #8bc53f;
+  color: #29b574;
   cursor: pointer;
   margin-right: 40px;
   display: none;
 }
-#check {
+.checkbtn2 {
+  font-size: 30px;
+  color: #29b574;
+  cursor: pointer;
+  margin-right: 40px;
   display: none;
 }
+
+
 .logo {
   width: 200px;
   float: left;
@@ -197,18 +212,23 @@ export default {
   margin-top: 25px;
   width: 900px;
   height: 70px;
-
+  box-sizing: border-box;
 }
 ul {
+
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 ul li {
+ 
   list-style: none;
   font-size: 1.1rem;
   margin: 25px;
+}
+#check{
+  display: none;
 }
 ul li a {
   text-decoration: none;
@@ -264,7 +284,7 @@ ul li:hover .sub-menu ul li {
   padding: 7px;
   font-size: 19px;
   border: 1px solid #00b2c9;
-  border-radius: 20px;
+  border-radius: 20px; 
   box-sizing: border-box;
   width: 100px;
   cursor: pointer;
@@ -301,8 +321,104 @@ span p {
   margin-top: -9px;
   position: absolute;
 }
-@media screen and(max-width: 858px) {
-  .btn {
-    background-color: red;
+#cancel{
+    display: none;
   }
-}</style>
+@media (max-width: 1022px) {
+
+  .logo{
+    position: absolute;
+   left: -100px;
+  }
+  #btn3 {
+    position: absolute;
+    right: 80px;
+    top: 0px;
+  }
+  .checkbtn{
+    display: block;
+    position: absolute;
+    right: 40px;
+    top: 45px;
+  }
+
+  /* .checkbtn2{
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: 45px;
+  } */
+  ul{
+    display: none;
+  }
+  ul{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    top: 100px;
+    left: -100%;
+    z-index: 200;
+  }
+
+  
+  ul {
+    display: block;
+  }
+  ul li a{
+    font-size: 20px;
+  }
+  #check:checked ~ ul { 
+    transition: all .5s;
+    left: 0px;
+  }
+  
+  #check:checked ~ label #open{
+    display: none;
+  }
+  #check:checked ~ label #cancel{
+    display: block;
+  
+  }
+  #check:checked ~ ul{
+ 
+    transition: all .5s;
+  }
+  #check:checked ~ ul li{
+    padding-left: 70px;
+ 
+}
+ 
+  .sub-menu{
+    position: absolute;
+  
+   
+  }
+  .sub-menu ul li #a1{
+    position: absolute;
+    top: -75px;   
+    width: 150px;
+    height: 100px;
+    left: 0px;
+  }
+  
+  .sub-menu ul li #a2{
+    position: absolute;
+    top: -40px;
+    left: 0px;
+    width: 150px;
+    height: 100px;
+   
+  }
+  #btn1{
+  position: absolute;
+  display: block;
+  top: 40px;
+  right: 170px;
+}
+
+
+}
+
+
+</style>

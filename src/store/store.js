@@ -89,11 +89,16 @@ export const store = new Vuex.Store({
   actions: {
 
     fetchData({ commit, state }) {
+      let baseUrl22='https://portal.thebuyhive.com/api/ecom/v2/search';
+      let baseURL11='https://portal.thebuyhive.com/api/ecom/v2/search-filter';
+      let baseURL33=`https://portal.thebuyhive.com/api/ecom/v2/categories`;
+       let sort_by="default" 
+       console.log(state.getCategoryValue , "gagagag");
       const params = {
         keyword: state.getSearchValue,
         category: state.getCategoryValue,
         page: state.page,
-        sort_by: state.sort_by
+        sort_by: sort_by
       };
       if (state.certificates != "") {
         params.certificates = state.certificates
@@ -116,11 +121,12 @@ export const store = new Vuex.Store({
       if(state.stock_in_use!=""){
         params.stock_in_use=state.stock_in_use;
       }
+
       console.log(params, "paraaaa");
-      var baseUrl1 = axios.get('https://portal.thebuyhive.com/api/ecom/v2/search-filter', {
-        params: params
+      var baseUrl1 = axios.get('https://portal.thebuyhive.com/api/ecom/v2/search-filter', {   
+        params
       });
-      var baseUrl2 = axios.get('https://portal.thebuyhive.com/api/ecom/v2/search', {
+      var baseUrl2 = axios.get('http://localhost:8080/api/ecom/v2/search', {
         params: params
       });
       console.log(state.getSearchValue, "in fetch data");
@@ -134,10 +140,10 @@ export const store = new Vuex.Store({
     },
 
     fetchCategory({ commit }) {
-      axios.get('https://portal.thebuyhive.com/api/ecom/v2/categories')
+      axios.get('http://localhost:8080/api/ecom/v2/categories')
         .then(res => {
           const category = res.data;
-          console.log(category, "from API");
+          console.log(category, "from API categoty");
           commit('setCategories', category);
         }).catch(err => {
           console.error(err, "Error from Api");
@@ -145,7 +151,7 @@ export const store = new Vuex.Store({
     },
 
     fetchCertifications({ commit }) {
-      axios.get('https://portal.thebuyhive.com/api/ecom/v2/search-filter')
+      axios.get('http://localhost:8080/api/ecom/v2/search-filter')
         .then(res => {
           const Filter = res.data;
           console.log(Filter, "from APi product FIlter");

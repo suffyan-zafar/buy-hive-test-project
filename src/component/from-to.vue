@@ -93,4 +93,16 @@ export default {
   bottom: 30px;
 
 }
+
+@media (max-width: 550px) {
+  #inputt {
+  width: 80%;
+}
+#dolar2{
+  position: relative;
+
+  
+}
+
+}
 </style>

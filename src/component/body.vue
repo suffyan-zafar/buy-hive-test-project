@@ -1,9 +1,10 @@
 <template>
-  <div>
+  <div id="main">
     <!-- Search Bar  START -->
     <Search-Bar></Search-Bar>
     <!-- Start Second Section -->
     <Product-Count @total_results="total_results"></Product-Count>
+    <button id="flter" @click="CLickMe">Filters</button>
     <!-- Start 3rd Section -->
     <div class="thirdSection">
       <div id="left2" :style="{ height: dynamicHeightForBorder + 'vh' }">
@@ -96,6 +97,7 @@ export default {
 
   data: function () {
     return {
+      isCheck:false,
       productCount: null,
       locationCount: null,
       isTrue: true,
@@ -181,6 +183,9 @@ export default {
     },
     total_results(val) {
       this.total_Product_Results = val;
+    },
+    CLickMe(){
+      this.isCheck=true
     }
   },
 
@@ -189,6 +194,7 @@ export default {
 </script>
 
 <style scoped>
+
 .thirdSection {
   margin-left: 220px;
   margin-right: 210px;
@@ -287,4 +293,70 @@ export default {
   margin-left: 50px;
   margin-top: 10px;
 }
+#flter{
+position: relative;
+box-sizing: border-box;
+
+width: 75%;
+font-size: 20px;
+padding: 10px;
+border: none;
+border-radius: 20px;
+top: 10px;
+height: 40px;
+background-color: rgba(242, 242, 242, 1);
+margin-bottom: 10px;
+cursor: pointer;
+display:none;
+
+}
+
+@media (max-width: 550px) {
+#flter{
+display: block;
+margin-left: -65px;
+}
+.thirdSection #left2{
+  width: 480%;
+  position: relative;
+  left: -120px;
+  
+}
+
+#inputtt{
+  width:90%;
+  position: relative;
+}
+#search{
+  display: none;
+
+ 
+}
+}
+@media (max-width: 968px) {
+#flter{
+margin-top: 35px;
+display: block;
+margin-bottom: 20px;
+position: relative;
+left: 135px;
+
+}
+#left2{
+  width: 80%;
+  position: relative;
+  left: 70px;
+}
+#inputtt{
+  width:90%;
+}
+#search{
+    position: relative;
+left: 370px;
+top: -25px;
+margin-right: 20px;
+ 
+}
+} 
 </style>
+

@@ -4,12 +4,12 @@
       <a href="#" id="aTag" v-on:click="handleEvnt(true, 1)"><font-awesome-icon icon="boxes" id="firstIcon" /></a>
       <a href="#" id="aTag" v-on:click="handleEvnt(true, 2)"> <font-awesome-icon icon="list" id="secondIcon" /></a>
     </div>
-    <div style="width: 15%; height: 5vh;  position: relative;">
+    <div style="width: 15%; height: 5vh;  position: relative;" id="relevance">
       <ul>
         <li> <a href="#" style="text-decoration: none; position: relative;">Relevance <font-awesome-icon icon="angle-down"
               id="angle" /></a>
           <div id="sub-menu">
-            <ul>
+            <ul id="uul">
               <li id="li1" v-on:click="handleCLick('relevance')">Relevance</li>
               <li id="li2" v-on:click="handleCLick('latest')"> Latest </li>
               <li id="li3" v-on:click="handleCLick('price_low_to_high')">Price Low TO High</li>
@@ -27,13 +27,13 @@
     </div>
 
     <div style="margin-left: 12px; text-align: center; margin-top: 6px;">
-      <p
+      <p  id="incr"
         style="background-color: rgba(0, 0, 0, 0.1); color: black; text-align: center; width: 50px; font-size: 25px; font-weight: 500; border-radius: 20px;">
         {{ incrementedValue }}
       </p>
     </div>
     <div style="margin-left: 5px; text-align: center; margin-top: 12px;">
-      <p style="color: black; text-align: center;font-size: 16px; font-weight: 500; "> of {{ Math.floor(parseInt(total_Product_Results)/24) }} </p>
+      <p id="Ineer" style="color: black; text-align: center;font-size: 16px; font-weight: 500; "> of {{ Math.floor(parseInt(total_Product_Results)/24) }} </p>
     </div>
     <div style="margin-left: 10px; text-align: center; margin-top: 5px;">
       <button style="border: none; border-radius: 50px;" @click="handleRight">
@@ -76,8 +76,10 @@ export default {
       }
     },
     handleRight() {
-      this.incrementedValue++;
-      console.log(this.incrementedValue, "left value");
+      if(this.incrementedValue <  Math.floor(parseInt(this.total_Product_Results)/24)){
+        
+        this.incrementedValue++;
+      }
       this.$store.commit('setPageValue', this.incrementedValue);
       this.$store.dispatch('fetchData');
     },
@@ -226,4 +228,93 @@ ul li:hover #sub-menu ul #li6 {
   width: 30px;
   height: 30px;
   border-radius: 50px;
-}</style>
+}
+@media (max-width: 550px) {
+  #aTag{
+    display: none;
+  }
+  #angle1{
+    display: none;
+  }
+  #angle2{
+    display: none;
+  }
+  #Ineer{
+    display: none;
+  }
+
+  #relevance{
+    background-color: red;
+    width: 500px;
+  } ul li{
+
+    padding-left: 200px;
+    width: 500px;
+  }
+  #li1{
+    padding-left: 0px;
+  }
+  #li2{
+    padding-left: 0px;
+  }
+  #li3{
+    padding-left: 0px;
+  }
+  #li4{
+    padding-left: 0px;
+  }
+  #li5{
+    padding-left: 0px;
+  }
+  #li6{
+    padding-left: 0px;
+  }
+  #incr{
+    display: none;
+  }
+}
+@media (max-width: 1024px){
+  #aTag{
+    display: none;
+  }
+  #angle1{
+    display: none;
+  }
+  #angle2{
+    display: none;
+  }
+  #Ineer{
+    display: none;
+  }
+  #incr{
+    display: none;
+  }
+  #relevance{
+
+    width: 500px;
+  } ul li{
+    margin-left: -400px;
+
+    width: 500px;
+  }
+  #li1{
+    margin-left: 0px;
+  }
+  #li2{
+    margin-left: 0px;
+  }
+  #li3{
+    margin-left: 0px;
+  }
+  #li4{
+    margin-left: 0px;
+  }
+  #li5{
+    margin-left: 0px;
+  }
+  #li6{
+    margin-left: 0px;
+  }
+
+}
+</style>

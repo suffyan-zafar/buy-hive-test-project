@@ -51,4 +51,21 @@ export default {
   -webkit-appearance: none;
   margin: 0;
 }
+
+@media (max-width: 550px) {
+  #inputtt {
+      width: 90%;
+
+}
+#MOQ{
+  width: 90%;
+    }
+
+}
+@media (max-width: 968px) {
+  #inputtt {
+      width: 90%;
+
+}
+}
 </style>

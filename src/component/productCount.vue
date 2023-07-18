@@ -84,4 +84,37 @@ export default {
 #p2 {
   font-size: 17px;
   font-weight: 700;
-}</style>
+}
+
+@media (max-width: 968px){
+  #buy{
+    display: none;
+  }
+  .right{
+    display: none;
+  }
+  .left{
+    box-sizing: border-box;
+    width: 100%;
+ 
+    position: relative;
+    right: 130px;
+    top: 40px;
+  }
+}
+
+@media (max-width: 550px) {
+  .left{
+    width: 100vw;
+    box-sizing: border-box;
+  
+  }
+  #product{
+    font-size: 22px;
+   
+    width: 380px;
+  }
+
+}
+
+</style>

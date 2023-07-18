@@ -31,7 +31,7 @@ export default {
 #inputtt {
   margin-top: 15px;
   padding: 12px;
-  width: 19rem;
+  width: 100%;
   border-radius: 50px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   background-color: rgba(242, 242, 242, 1);
@@ -57,5 +57,23 @@ export default {
   left: 300px;
   bottom: 30px;
   font-size: 14px;
+}
+@media (max-width: 550px) {
+
+   #inputtt { 
+    position: relative;
+    top: 2100px;
+
+}
+}
+
+@media (max-width: 968px) {
+
+  #inputtt {
+    position: relative;
+    margin-left: 100px;
+    width: 190%;
+
+}
 }
 </style>

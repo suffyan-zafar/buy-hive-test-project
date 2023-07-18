@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <header-vue></header-vue>
-    <body-vue></body-vue>
-    <footer-vue></footer-vue>
+     <body-vue></body-vue> 
+    <footer-vue></footer-vue> 
   </div>
 </template>
 
